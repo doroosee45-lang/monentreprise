@@ -43,7 +43,7 @@ const Navbar = () => {
   const servicesDropdown = [
     { name: 'Réseau & Infrastructure', path: '/services/reseau-infrastructure' },
     { name: 'Sécurité', path: '/services/securite' },
-    { name: 'Développement Digital', path: 'DeveloppementDigital' },
+    { name: 'Développement Digital', path: '/developpement-digital' },
     { name: 'Cloud & Hébergement', path: '/services/cloud-hebergement' },
     { name: 'Énergie & Équipements', path: '/services/energie-equipements' },
     { name: 'Vente de Matériel', path: '/services/vente-materiel' },
@@ -115,7 +115,7 @@ const Navbar = () => {
                 letterSpacing: '-0.5px',
               }}
             >
-              OMDEVE
+              Omedev
             </span>
           </Link>
 

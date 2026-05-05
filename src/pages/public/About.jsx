@@ -628,50 +628,69 @@ const About = () => {
       </div>
 
       {/* Section contact simplifiée (inspirée de Contact) */}
-      <div className="container" style={{ marginTop: '4rem' }}>
-        <div className="info-card" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', padding: 0, overflow: 'hidden' }}>
-          <div style={{ padding: '2rem' }}>
-            <h3 className="card-title" style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Contactez-nous</h3>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                <div className="card-icon" style={{ width: '2.5rem', height: '2.5rem', margin: 0, backgroundColor: '#3b82f6' }}>
-                  <Phone size={16} color="white" />
-                </div>
-                <div>
-                  <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Téléphone</div>
-                  <a href="tel:+243816590788" style={{ fontWeight: 600, color: '#0f172a', textDecoration: 'none' }}>+243 816 590 788</a>
-                </div>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                <div className="card-icon" style={{ width: '2.5rem', height: '2.5rem', margin: 0, backgroundColor: '#10b981' }}>
-                  <Mail size={16} color="white" />
-                </div>
-                <div>
-                  <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Email</div>
-                  <a href="mailto:omedevservices@gmail.com" style={{ fontWeight: 600, color: '#0f172a', textDecoration: 'none' }}>omedevservices@gmail.com</a>
-                </div>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                <div className="card-icon" style={{ width: '2.5rem', height: '2.5rem', margin: 0, backgroundColor: '#f59e0b' }}>
-                  <MapPin size={16} color="white" />
-                </div>
-                <div>
-                  <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Adresse</div>
-                  <div style={{ fontWeight: 600, color: '#0f172a' }}>Avenue Kabmabre n°75, Lingwala, Kinshasa, RDC</div>
-                </div>
-              </div>
-            </div>
+     {/* Section contact simplifiée (inspirée de Contact) - Version responsive */}
+<div className="container" style={{ marginTop: '4rem' }}>
+  <div className="info-card" style={{ 
+    display: 'grid', 
+    gridTemplateColumns: 'repeat(2, 1fr)', 
+    padding: 0, 
+    overflow: 'hidden',
+    // Sur mobile, on passe en colonne
+    '@media (max-width: 768px)': { gridTemplateColumns: '1fr' }
+  }}>
+    <div style={{ padding: '2rem' }}>
+      <h3 className="card-title" style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Contactez-nous</h3>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
+          <div className="card-icon" style={{ width: '2.5rem', height: '2.5rem', margin: 0, backgroundColor: '#3b82f6', flexShrink: 0 }}>
+            <Phone size={16} color="white" />
           </div>
-          <div style={{ background: '#f8fafc', padding: '2rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', borderLeft: '1px solid #e2e8f0' }}>
-            <div className="cta-icon" style={{ backgroundColor: '#3b82f6' }}>
-              <Headphones size={28} color="white" />
-            </div>
-            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, margin: '1rem 0 0.5rem' }}>Support 24/7</h3>
-            <p style={{ color: '#475569', marginBottom: '1rem' }}>Une question urgente ? Notre équipe est là pour vous.</p>
-            <Link to="/contact" className="btn-cta">Nous écrire</Link>
+          <div>
+            <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Téléphone</div>
+            <a href="tel:+243816590788" style={{ fontWeight: 600, color: '#0f172a', textDecoration: 'none', wordBreak: 'break-word' }}>+243 816 590 788</a>
+          </div>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
+          <div className="card-icon" style={{ width: '2.5rem', height: '2.5rem', margin: 0, backgroundColor: '#10b981', flexShrink: 0 }}>
+            <Mail size={16} color="white" />
+          </div>
+          <div>
+            <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Email</div>
+            <a href="mailto:omedevservices@gmail.com" style={{ fontWeight: 600, color: '#0f172a', textDecoration: 'none', wordBreak: 'break-word' }}>omedevservices@gmail.com</a>
+          </div>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
+          <div className="card-icon" style={{ width: '2.5rem', height: '2.5rem', margin: 0, backgroundColor: '#f59e0b', flexShrink: 0 }}>
+            <MapPin size={16} color="white" />
+          </div>
+          <div>
+            <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Adresse</div>
+            <div style={{ fontWeight: 600, color: '#0f172a', wordBreak: 'break-word' }}>Avenue Kabmabre n°75, Lingwala, Kinshasa, RDC</div>
           </div>
         </div>
       </div>
+    </div>
+    <div style={{ 
+      background: '#f8fafc', 
+      padding: '2rem', 
+      display: 'flex', 
+      flexDirection: 'column', 
+      justifyContent: 'center', 
+      alignItems: 'center', 
+      textAlign: 'center', 
+      borderLeft: '1px solid #e2e8f0',
+      // Supprimer la bordure gauche sur mobile
+      '@media (max-width: 768px)': { borderLeft: 'none', borderTop: '1px solid #e2e8f0' }
+    }}>
+      <div className="cta-icon" style={{ backgroundColor: '#3b82f6', width: '4rem', height: '4rem', borderRadius: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <Headphones size={28} color="white" />
+      </div>
+      <h3 style={{ fontSize: '1.5rem', fontWeight: 700, margin: '1rem 0 0.5rem' }}>Support 24/7</h3>
+      <p style={{ color: '#475569', marginBottom: '1rem' }}>Une question urgente ? Notre équipe est là pour vous.</p>
+      <Link to="/contact" className="btn-cta" style={{ background: '#3b82f6', color: 'white', padding: '0.5rem 1.5rem', borderRadius: '0.75rem', textDecoration: 'none', fontWeight: 600 }}>Nous écrire</Link>
+    </div>
+  </div>
+</div>
 
       {/* Double CTA finale (identique à Contact) */}
       <div className="container" style={{ margin: '4rem auto' }}>

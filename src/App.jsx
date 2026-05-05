@@ -286,11 +286,8 @@
 
 
 
-
-
-
 import React, { useEffect } from 'react';
-import { BrowserRouter, Routes, Route, useParams, useNavigate, Outlet } from 'react-router-dom';
+import { HashRouter, Routes, Route, useParams, useNavigate, Outlet } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import useAuthStore from './store/authStore';
@@ -325,8 +322,8 @@ import CloudHebergement from './pages/public/services/CloudHebergement';
 import EnergieEquipements from './pages/public/services/EnergieEquipements';
 import VenteMateriel from './pages/public/services/VenteMateriel';
 import Formation from './pages/public/services/Formation';
-import Inscription from './pages/public/services/Inscription';
 import DevisCloud from './pages/public/services/DevisCloud';
+import LiveChat from './components/common/LiveChat';
 
 // Client pages
 import ClientDashboard from './pages/client/ClientDashboard';
@@ -354,13 +351,14 @@ const ADMIN_ROLES = ['super_admin', 'admin', 'manager'];
 const Layout = () => (
   <>
     <Navbar />
-    {/* Ajout d'un padding-top pour éviter que le contenu soit caché sous la navbar fixe */}
     <main style={{ paddingTop: '72px' }}>
       <Outlet />
     </main>
     <Footer />
+    <LiveChat />
   </>
 );
+
 
 /* ------------------------------------------------------------------ */
 /*  App                                                               */
@@ -374,7 +372,7 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
+      <HashRouter>
         <Toaster
           position="top-right"
           toastOptions={{
@@ -409,13 +407,13 @@ function App() {
 
             {/* ========== SERVICES ========== */}
             <Route path="/services/reseau-infrastructure" element={<ReseauInfrastructure />} />
-            <Route path="/services/securite" element={<Securite />} />
-            <Route path="DeveloppementDigital" element={<DeveloppementDigital />} />
-            <Route path="/services/cloud-hebergement" element={<CloudHebergement />} />
-            <Route path="/services/energie-equipements" element={<EnergieEquipements />} />
-            <Route path="/services/vente-materiel" element={<VenteMateriel />} />
-            <Route path="/services/formation" element={<Formation />} />
-            <Route path="/devis-cloud" element={<DevisCloud />} />
+            <Route path="/services/securite"              element={<Securite />} />
+            <Route path="/developpement-digital" element={<DeveloppementDigital />} />
+            <Route path="/services/cloud-hebergement"     element={<CloudHebergement />} />
+            <Route path="/services/energie-equipements"   element={<EnergieEquipements />} />
+            <Route path="/services/vente-materiel"        element={<VenteMateriel />} />
+            <Route path="/services/formation"             element={<Formation />} />
+            <Route path="/devis-cloud"                    element={<DevisCloud />} />
 
             {/* ===== CLIENT ===== */}
             <Route path="/client/dashboard"  element={<ProtectedRoute roles={['client','super_admin','admin','manager']}><ClientDashboard /></ProtectedRoute>} />
@@ -435,21 +433,21 @@ function App() {
             <Route path="/admin/audits"    element={<ProtectedRoute roles={ADMIN_ROLES}><AdminAuditPage /></ProtectedRoute>} />
           </Route>
 
-          {/* Routes sans Navbar/Footer (authentification & erreurs) */}
-          <Route path="/login"    element={<GuestRoute><LoginPage /></GuestRoute>} />
-          <Route path="/register" element={<GuestRoute><RegisterPage /></GuestRoute>} />
+          {/* Routes sans Navbar/Footer */}
+          <Route path="/login"                  element={<GuestRoute><LoginPage /></GuestRoute>} />
+          <Route path="/register"               element={<GuestRoute><RegisterPage /></GuestRoute>} />
           <Route path="/forgot-password"        element={<ForgotPasswordPage />} />
           <Route path="/reset-password/:token"  element={<ResetPasswordPage />} />
-          <Route path="/unauthorized" element={<UnauthorizedPage />} />
-          <Route path="*"             element={<NotFoundPage />} />
+          <Route path="/unauthorized"           element={<UnauthorizedPage />} />
+          <Route path="*"                       element={<NotFoundPage />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </QueryClientProvider>
   );
 }
 
 /* ------------------------------------------------------------------ */
-/*  ForgotPasswordPage (conservé tel quel)                           */
+/*  ForgotPasswordPage                                               */
 /* ------------------------------------------------------------------ */
 const ForgotPasswordPage = () => {
   const [email, setEmail] = React.useState('');
@@ -486,7 +484,7 @@ const ForgotPasswordPage = () => {
           </form>
         )}
         <div style={{ textAlign: 'center', marginTop: 20 }}>
-          <a href="/login" style={{ color: 'var(--primary)', fontSize: 14 }}>← Retour à la connexion</a>
+          <a href="#/login" style={{ color: 'var(--primary)', fontSize: 14 }}>← Retour à la connexion</a>
         </div>
       </div>
     </div>
@@ -494,7 +492,7 @@ const ForgotPasswordPage = () => {
 };
 
 /* ------------------------------------------------------------------ */
-/*  ResetPasswordPage (conservé tel quel)                            */
+/*  ResetPasswordPage                                                */
 /* ------------------------------------------------------------------ */
 const ResetPasswordPage = () => {
   const { token } = useParams();
@@ -543,26 +541,26 @@ const ResetPasswordPage = () => {
 };
 
 /* ------------------------------------------------------------------ */
-/*  UnauthorizedPage (conservé tel quel)                             */
+/*  UnauthorizedPage                                                 */
 /* ------------------------------------------------------------------ */
 const UnauthorizedPage = () => (
   <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: 16, background: 'var(--gray-100)' }}>
     <div style={{ fontSize: 64 }}>🚫</div>
     <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 32, color: 'var(--dark-700)' }}>Accès refusé</h1>
     <p style={{ color: 'var(--gray-500)', maxWidth: 380, textAlign: 'center' }}>Vous n'avez pas les droits pour accéder à cette page.</p>
-    <a href="/" className="btn btn-primary">Retour à l'accueil</a>
+    <a href="#/" className="btn btn-primary">Retour à l'accueil</a>
   </div>
 );
 
 /* ------------------------------------------------------------------ */
-/*  NotFoundPage (conservé tel quel)                                 */
+/*  NotFoundPage                                                     */
 /* ------------------------------------------------------------------ */
 const NotFoundPage = () => (
   <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: 16, background: 'linear-gradient(135deg, var(--dark-900), var(--dark-700))' }}>
     <div style={{ fontFamily: 'var(--font-display)', fontSize: 120, fontWeight: 800, color: 'var(--primary)', lineHeight: 1 }}>404</div>
     <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 28, color: '#fff' }}>Page introuvable</h2>
     <p style={{ color: 'rgba(255,255,255,0.5)', maxWidth: 380, textAlign: 'center' }}>La page que vous cherchez n'existe pas ou a été déplacée.</p>
-    <a href="/" className="btn btn-primary btn-lg">Retour à l'accueil →</a>
+    <a href="#/" className="btn btn-primary btn-lg">Retour à l'accueil →</a>
   </div>
 );
 
