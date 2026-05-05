@@ -2000,85 +2000,47 @@ to {
           to { transform: rotate(360deg); }
         }
       `}),(0,R.jsxs)(`div`,{className:`blog-detail-hero`,children:[(0,R.jsx)(`div`,{className:`hero-bg`}),(0,R.jsx)(`div`,{className:`hero-overlay`}),(0,R.jsxs)(`div`,{className:`hero-content`,children:[(0,R.jsxs)(F,{to:`/blog`,className:`back-link`,children:[(0,R.jsx)(My,{size:16}),` Retour au blog`]}),(0,R.jsx)(`div`,{className:`category-badge`,style:{background:l},children:t.category||`Article`}),(0,R.jsx)(J.h1,{initial:{opacity:0,y:30},animate:{opacity:1,y:0},transition:{duration:.7},className:`article-title`,children:t.title}),(0,R.jsxs)(J.div,{initial:{opacity:0,y:30},animate:{opacity:1,y:0},transition:{duration:.7,delay:.2},className:`article-meta`,children:[(0,R.jsxs)(`span`,{className:`meta-item`,children:[(0,R.jsx)(Ub,{size:14}),` `,t.author?.firstName,` `,t.author?.lastName]}),(0,R.jsxs)(`span`,{className:`meta-item`,children:[(0,R.jsx)($y,{size:14}),` `,t.views,` vues`]}),t.readTime&&(0,R.jsxs)(`span`,{className:`meta-item`,children:[(0,R.jsx)(Wy,{size:14}),` `,t.readTime,` min de lecture`]}),t.publishedAt&&(0,R.jsxs)(`span`,{className:`meta-item`,children:[(0,R.jsx)(Ry,{size:14}),` `,s(t.publishedAt)]})]})]})]}),(0,R.jsxs)(`div`,{className:`container`,children:[(0,R.jsx)(`div`,{className:`article-content`,dangerouslySetInnerHTML:{__html:t.content?.replace(/\n/g,`<br/>`)||``}}),t.tags&&t.tags.length>0&&(0,R.jsx)(`div`,{className:`tags`,children:t.tags.map(e=>(0,R.jsxs)(`span`,{className:`tag`,children:[`#`,e]},e))}),t.related&&t.related.length>0&&(0,R.jsxs)(`div`,{className:`related-section`,children:[(0,R.jsx)(`h3`,{className:`related-title`,children:`Articles similaires`}),(0,R.jsx)(`div`,{className:`related-grid`,children:t.related.map(e=>(0,R.jsxs)(F,{to:`/blog/${e.slug}`,className:`related-card`,children:[(0,R.jsx)(`div`,{className:`related-card-title`,children:e.title}),(0,R.jsxs)(`div`,{className:`related-card-excerpt`,children:[e.excerpt?.slice(0,80),`…`]})]},e._id))})]}),(0,R.jsxs)(`div`,{className:`cta-box`,children:[(0,R.jsxs)(`div`,{children:[(0,R.jsx)(`h4`,{style:{fontFamily:`Syne, sans-serif`,fontSize:`1.125rem`,marginBottom:`0.25rem`},children:`Un projet en tête ?`}),(0,R.jsx)(`p`,{style:{fontSize:`0.875rem`,color:`#475569`},children:`Contactez OMDEVE pour une consultation gratuite.`})]}),(0,R.jsxs)(F,{to:`/devis`,className:`btn-devis`,children:[`Demander un devis `,(0,R.jsx)(Hy,{size:14})]})]})]})]})},nS={hidden:{opacity:0,y:40},visible:{opacity:1,y:0,transition:{duration:.7}}},rS={hidden:{opacity:0},visible:{opacity:1,transition:{staggerChildren:.08}}},iS=()=>{let[e,t]=(0,b.useState)({nom:``,email:``,phone:``,objet:`Demande d'information`,message:``}),[n,r]=(0,b.useState)(!1),[i,a]=(0,b.useState)(``),[o,s]=(0,b.useState)(!1),c=n=>{t({...e,[n.target.name]:n.target.value})},l=async n=>{n.preventDefault(),s(!0),a(``),r(!1);try{await H.post(`/contact`,e),r(!0),t({nom:``,email:``,phone:``,objet:`Demande d'information`,message:``}),setTimeout(()=>r(!1),5e3)}catch(e){console.error(e);let t=e.response?.data?.message||`Une erreur est survenue. Veuillez réessayer plus tard.`;(e.response?.data?.code===`EAUTH`||t.includes(`Invalid login`)||t.includes(`Username and Password not accepted`))&&(t=`Erreur de configuration email. Notre équipe technique a été informée. Veuillez nous contacter directement par téléphone.`),a(t),setTimeout(()=>a(``),8e3)}finally{s(!1)}},u=[{icon:hb,title:`Adresse`,content:`Avenue Kabmabre n°75, Lingwala, Kinshasa`,link:`https://maps.google.com/?q=Kinshasa+Lingwala`,color:`#3b82f6`},{icon:xb,title:`Téléphone`,content:`+243 555 503 59`,link:`tel:+24355550359`,color:`#10b981`},{icon:mb,title:`Email`,content:`omedevservices@gmail.com`,link:`mailto:omedevservices@gmail.com`,color:`#f97316`},{icon:_b,title:`WhatsApp`,content:`+243 555 503 59`,link:`https://wa.me/24355550359`,color:`#10b981`}],d=[{day:`Lundi – Vendredi`,time:`8h – 18h`,open:!0},{day:`Samedi`,time:`9h – 13h`,open:!0},{day:`Dimanche`,time:`Fermé`,open:!1}],f=[{icon:Ob,text:`100% confidentiel`},{icon:Pb,text:`4.9/5 satisfaction client`},{icon:Iy,text:`+150 projets IT livrés`},{icon:ib,text:`Accompagnement sans engagement`}];return(0,R.jsxs)(R.Fragment,{children:[(0,R.jsx)(`style`,{children:`
-        /* Styles de base (version simple) */
-        .container {
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 0 1.5rem;
-        }
-        .section {
-          padding: 4rem 0;
-        }
-        .form-group {
-          margin-bottom: 1rem;
-        }
+        /* === STYLES DE BASE (inchangés) === */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+        .section { padding: 4rem 0; }
+        .form-group { margin-bottom: 1rem; }
         .form-label {
-          display: block;
-          font-size: 0.75rem;
-          font-weight: 700;
-          margin-bottom: 0.25rem;
-          color: #334155;
-          text-transform: uppercase;
-          letter-spacing: 0.05em;
+          display: block; font-size: 0.75rem; font-weight: 700; margin-bottom: 0.25rem;
+          color: #334155; text-transform: uppercase; letter-spacing: 0.05em;
         }
         .form-input {
-          width: 100%;
-          padding: 0.75rem 1rem;
-          border: 1px solid #e2e8f0;
-          border-radius: 0.5rem;
-          font-size: 0.875rem;
-          transition: all 0.2s;
-          background: #fff;
+          width: 100%; padding: 0.75rem 1rem; border: 1px solid #e2e8f0; border-radius: 0.5rem;
+          font-size: 0.875rem; transition: all 0.2s; background: #fff;
         }
-        .form-input:focus {
-          outline: none;
-          border-color: #3b82f6;
-          box-shadow: 0 0 0 3px rgba(59,130,246,0.1);
-        }
+        .form-input:focus { outline: none; border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59,130,246,0.1); }
         .btn-primary {
-          background: #3b82f6;
-          color: white;
-          padding: 0.75rem 1.5rem;
-          border-radius: 0.5rem;
-          font-weight: 600;
-          border: none;
-          cursor: pointer;
-          transition: all 0.2s;
+          background: #3b82f6; color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem;
+          font-weight: 600; border: none; cursor: pointer; transition: all 0.2s;
         }
-        .btn-primary:hover {
-          background: #2563eb;
-          transform: scale(1.02);
-        }
-        .btn-primary:disabled {
-          opacity: 0.7;
-          cursor: not-allowed;
-        }
+        .btn-primary:hover { background: #2563eb; transform: scale(1.02); }
+        .btn-primary:disabled { opacity: 0.7; cursor: not-allowed; }
         .spinner {
-          width: 18px;
-          height: 18px;
-          border: 2px solid #fff;
-          border-top-color: transparent;
-          border-radius: 50%;
-          animation: spin 0.7s linear infinite;
-          display: inline-block;
+          width: 18px; height: 18px; border: 2px solid #fff; border-top-color: transparent;
+          border-radius: 50%; animation: spin 0.7s linear infinite; display: inline-block;
         }
-        @keyframes spin {
-          to { transform: rotate(360deg); }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* ===== NOUVEAU : GRILLE PRINCIPALE responsive ===== */
+        .contact-main-grid {
+          display: grid;
+          grid-template-columns: 1.5fr 1fr;
+          gap: 48px;
+          align-items: start;
         }
-        @media (max-width: 768px) {
-          .contact-main-grid {
-            grid-template-columns: 1fr !important;
-            gap: 32px !important;
-          }
-          .cards-grid {
-            grid-template-columns: 1fr !important;
-          }
-          .container {
-            padding-left: 1rem;
-            padding-right: 1rem;
-          }
+
+        /* ===== GRILLE DES CHAMPS DU FORMULAIRE (2 colonnes puis 1 sur mobile) ===== */
+        .form-row {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 14px;
         }
-        /* Styles pour les cartes contact enrichies */
+
+        /* ===== CARTES CONTACT (4 colonnes) ===== */
         .cards-grid {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
@@ -2089,193 +2051,59 @@ to {
           padding-bottom: 3rem;
         }
         .card-info {
-          background: white;
-          border: 1px solid #e2e8f0;
-          border-radius: 1rem;
-          padding: 1.5rem;
-          text-align: center;
-          transition: all 0.3s;
-          text-decoration: none;
-          color: inherit;
-          box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+          background: white; border: 1px solid #e2e8f0; border-radius: 1rem;
+          padding: 1.5rem; text-align: center; transition: all 0.3s;
+          text-decoration: none; color: inherit; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
         }
-        .card-info:hover {
-          transform: translateY(-6px);
-          box-shadow: 0 20px 25px -12px rgba(0,0,0,0.1);
-          border-color: #cbd5e1;
-        }
+        .card-info:hover { transform: translateY(-6px); box-shadow: 0 20px 25px -12px rgba(0,0,0,0.1); border-color: #cbd5e1; }
         .card-icon {
-          width: 3.5rem;
-          height: 3.5rem;
-          margin: 0 auto 1rem;
-          border-radius: 1rem;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          transition: transform 0.2s;
+          width: 3.5rem; height: 3.5rem; margin: 0 auto 1rem; border-radius: 1rem;
+          display: flex; align-items: center; justify-content: center; transition: transform 0.2s;
         }
-        .card-info:hover .card-icon {
-          transform: scale(1.05);
-        }
-        .card-title {
-          font-size: 1.125rem;
-          font-weight: 700;
-          color: #1e293b;
-          margin-bottom: 0.25rem;
-        }
-        .card-content {
-          color: #475569;
-          font-size: 0.875rem;
-        }
-        /* Sidebar styles */
-        .sidebar-block {
-          background: #f8fafc;
-          border-radius: 1rem;
-          padding: 1.5rem;
-          margin-bottom: 1.5rem;
-        }
-        .info-title-icon {
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-          font-size: 1.125rem;
-          font-weight: 700;
-          color: #0f172a;
-          margin-bottom: 1rem;
-        }
-        .hours-item {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 0.6rem 0;
-          border-bottom: 1px solid #e2e8f0;
-        }
-        .hours-item:last-child {
-          border-bottom: none;
-        }
-        .engagement-item {
-          display: flex;
-          align-items: center;
-          gap: 0.75rem;
-          padding: 0.6rem 0;
-          border-bottom: 1px solid #e2e8f0;
-        }
-        .engagement-item:last-child {
-          border-bottom: none;
-        }
-        .quick-response {
-          background: #eff6ff;
-          border-radius: 1rem;
-          padding: 1.5rem;
-        }
+        .card-info:hover .card-icon { transform: scale(1.05); }
+        .card-title { font-size: 1.125rem; font-weight: 700; color: #1e293b; margin-bottom: 0.25rem; }
+        .card-content { color: #475569; font-size: 0.875rem; }
+
+        /* Sidebar */
+        .sidebar-block { background: #f8fafc; border-radius: 1rem; padding: 1.5rem; margin-bottom: 1.5rem; }
+        .info-title-icon { display: flex; align-items: center; gap: 0.5rem; font-size: 1.125rem; font-weight: 700; color: #0f172a; margin-bottom: 1rem; }
+        .hours-item { display: flex; justify-content: space-between; align-items: center; padding: 0.6rem 0; border-bottom: 1px solid #e2e8f0; }
+        .hours-item:last-child { border-bottom: none; }
+        .engagement-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem 0; border-bottom: 1px solid #e2e8f0; }
+        .engagement-item:last-child { border-bottom: none; }
+        .quick-response { background: #eff6ff; border-radius: 1rem; padding: 1.5rem; }
+
         /* Carte & transport */
-        .map-placeholder {
-          width: 100%;
-          height: 300px;
-          border-radius: 1rem;
-          background: #f1f5f9;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          margin-bottom: 1.5rem;
-        }
-        .transport-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-          gap: 1rem;
-          margin-top: 1rem;
-        }
-        .transport-item {
-          display: flex;
-          align-items: center;
-          gap: 0.75rem;
-          padding: 0.75rem;
-          background: #f8fafc;
-          border-radius: 0.75rem;
-        }
+        .map-placeholder { width: 100%; height: 300px; border-radius: 1rem; background: #f1f5f9; display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 1.5rem; }
+        .transport-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-top: 1rem; }
+        .transport-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem; background: #f8fafc; border-radius: 0.75rem; }
+
         /* Double CTA */
-        .cta-grid {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 2rem;
-          max-width: 1024px;
-          margin: 0 auto;
+        .cta-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 1024px; margin: 0 auto; }
+        .cta-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 1rem; padding: 2rem; text-align: center; transition: all 0.3s; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+        .cta-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -12px rgba(0,0,0,0.1); }
+        .cta-icon { width: 4rem; height: 4rem; margin: 0 auto 1.25rem; border-radius: 1rem; display: flex; align-items: center; justify-content: center; background: #3b82f6; transition: transform 0.2s; }
+        .cta-card:hover .cta-icon { transform: scale(1.05); }
+        .btn-outline-light { background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 0.75rem; padding: 0.625rem 1.25rem; color: #1e293b; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; transition: all 0.2s; }
+        .btn-outline-light:hover { background: #e2e8f0; transform: scale(1.02); }
+        .btn-amber { background: #f59e0b; border-radius: 0.75rem; padding: 0.625rem 1.5rem; color: white; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; transition: all 0.2s; }
+        .btn-amber:hover { background: #d97706; transform: scale(1.02); }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+          .cards-grid { grid-template-columns: repeat(2, 1fr); }
+          .cta-grid { grid-template-columns: 1fr; }
         }
-        .cta-card {
-          background: #fff;
-          border: 1px solid #e2e8f0;
-          border-radius: 1rem;
-          padding: 2rem;
-          text-align: center;
-          transition: all 0.3s;
-          box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        @media (max-width: 768px) {
+          .container { padding-left: 1rem; padding-right: 1rem; }
+          .contact-main-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+          .form-row { grid-template-columns: 1fr !important; }
+          .cards-grid { grid-template-columns: 1fr; margin-top: -2rem; }
+          .cards-grid { gap: 1rem; }
+          .card-info { padding: 1rem; }
+          .cta-card { padding: 1.5rem; }
         }
-        .cta-card:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 20px 25px -12px rgba(0,0,0,0.1);
-        }
-        .cta-icon {
-          width: 4rem;
-          height: 4rem;
-          margin: 0 auto 1.25rem;
-          border-radius: 1rem;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background: #3b82f6;
-          transition: transform 0.2s;
-        }
-        .cta-card:hover .cta-icon {
-          transform: scale(1.05);
-        }
-        .btn-outline-light {
-          background: #f1f5f9;
-          border: 1px solid #e2e8f0;
-          border-radius: 0.75rem;
-          padding: 0.625rem 1.25rem;
-          color: #1e293b;
-          font-weight: 600;
-          transition: all 0.2s;
-          text-decoration: none;
-          display: inline-flex;
-          align-items: center;
-          gap: 0.5rem;
-        }
-        .btn-outline-light:hover {
-          background: #e2e8f0;
-          transform: scale(1.02);
-        }
-        .btn-amber {
-          background: #f59e0b;
-          border-radius: 0.75rem;
-          padding: 0.625rem 1.5rem;
-          color: white;
-          font-weight: 600;
-          transition: all 0.2s;
-          text-decoration: none;
-          display: inline-flex;
-          align-items: center;
-          gap: 0.5rem;
-        }
-        .btn-amber:hover {
-          background: #d97706;
-          transform: scale(1.02);
-        }
-        @media (max-width: 900px) {
-          .cards-grid {
-            grid-template-columns: repeat(2, 1fr);
-          }
-          .cta-grid {
-            grid-template-columns: 1fr;
-          }
-        }
-        @media (max-width: 640px) {
-          .cards-grid {
-            grid-template-columns: 1fr;
-          }
-        }
-      `}),(0,R.jsxs)(`section`,{style:{position:`relative`,height:`400px`,display:`flex`,alignItems:`center`,justifyContent:`center`,textAlign:`center`,overflow:`hidden`},children:[(0,R.jsx)(`div`,{style:{position:`absolute`,top:0,left:0,width:`100%`,height:`100%`,backgroundImage:`url('https://www.shutterstock.com/image-illustration/smart-city-technology-3d-futuristic-260nw-2605212243.jpg')`,backgroundSize:`cover`,backgroundPosition:`center`,backgroundRepeat:`no-repeat`}}),(0,R.jsx)(`div`,{style:{position:`absolute`,top:0,left:0,width:`100%`,height:`100%`,background:`linear-gradient(135deg, rgba(10,14,26,0.85), rgba(0,0,0,0.7))`}}),(0,R.jsxs)(`div`,{className:`container`,style:{position:`relative`,zIndex:2},children:[(0,R.jsx)(`h1`,{style:{fontFamily:`var(--font-display)`,color:`#fff`,fontSize:`clamp(32px,5vw,56px)`,marginBottom:16},children:`Contactez-nous`}),(0,R.jsx)(`p`,{style:{color:`rgba(255,255,255,0.8)`,fontSize:17},children:`Notre équipe répond sous 24 heures ouvrables.`})]})]}),(0,R.jsx)(`div`,{className:`container`,style:{marginTop:`-3rem`,position:`relative`,zIndex:10,paddingBottom:`3rem`},children:(0,R.jsx)(J.div,{initial:`hidden`,whileInView:`visible`,viewport:{once:!0},variants:rS,className:`cards-grid`,children:u.map((e,t)=>{let n=e.icon;return(0,R.jsxs)(J.a,{variants:nS,href:e.link,target:`_blank`,rel:`noopener noreferrer`,className:`card-info`,children:[(0,R.jsx)(`div`,{className:`card-icon`,style:{background:e.color,color:`white`},children:(0,R.jsx)(n,{size:24})}),(0,R.jsx)(`h3`,{className:`card-title`,children:e.title}),(0,R.jsx)(`p`,{className:`card-content`,children:e.content})]},t)})})}),(0,R.jsx)(`section`,{className:`section`,style:{paddingTop:`1rem`},children:(0,R.jsx)(`div`,{className:`container`,children:(0,R.jsxs)(`div`,{className:`contact-main-grid`,style:{display:`grid`,gridTemplateColumns:`1.5fr 1fr`,gap:48,alignItems:`start`},children:[(0,R.jsx)(`div`,{style:{background:`#fff`,borderRadius:20,padding:36,boxShadow:`var(--shadow-lg)`},children:n?(0,R.jsxs)(`div`,{style:{textAlign:`center`,padding:`32px 0`},children:[(0,R.jsx)(`div`,{style:{fontSize:56,marginBottom:16},children:`✅`}),(0,R.jsx)(`h3`,{style:{fontFamily:`var(--font-display)`,fontSize:24,marginBottom:8},children:`Message envoyé !`}),(0,R.jsx)(`p`,{style:{color:`var(--gray-500)`},children:`Nous vous répondrons dans les 24 heures ouvrables.`}),(0,R.jsx)(`button`,{className:`btn btn-primary`,style:{marginTop:20},onClick:()=>r(!1),children:`Envoyer un autre message`})]}):(0,R.jsxs)(`form`,{onSubmit:l,style:{display:`flex`,flexDirection:`column`,gap:18},children:[(0,R.jsx)(`h3`,{style:{fontFamily:`var(--font-display)`,fontSize:22,marginBottom:4},children:`Envoyez-nous un message`}),i&&(0,R.jsxs)(`div`,{style:{background:`#fee2e2`,color:`#b91c1c`,padding:`12px 16px`,borderRadius:12,fontSize:14,border:`1px solid #fecaca`},children:[`❌ `,i]}),(0,R.jsxs)(`div`,{style:{display:`grid`,gridTemplateColumns:`1fr 1fr`,gap:14},children:[(0,R.jsxs)(`div`,{className:`form-group`,children:[(0,R.jsx)(`label`,{className:`form-label`,children:`Votre nom *`}),(0,R.jsx)(`input`,{type:`text`,name:`nom`,className:`form-input`,value:e.nom,onChange:c,required:!0,disabled:o})]}),(0,R.jsxs)(`div`,{className:`form-group`,children:[(0,R.jsx)(`label`,{className:`form-label`,children:`Votre email *`}),(0,R.jsx)(`input`,{type:`email`,name:`email`,className:`form-input`,value:e.email,onChange:c,required:!0,disabled:o})]}),(0,R.jsxs)(`div`,{className:`form-group`,children:[(0,R.jsx)(`label`,{className:`form-label`,children:`Téléphone`}),(0,R.jsx)(`input`,{type:`tel`,name:`phone`,className:`form-input`,value:e.phone,onChange:c,disabled:o})]})]}),(0,R.jsxs)(`div`,{className:`form-group`,children:[(0,R.jsx)(`label`,{className:`form-label`,children:`Objet`}),(0,R.jsxs)(`select`,{name:`objet`,className:`form-input`,value:e.objet,onChange:c,disabled:o,children:[(0,R.jsx)(`option`,{value:`Demande d'information`,children:`Demande d'information`}),(0,R.jsx)(`option`,{value:`Devis`,children:`Devis`}),(0,R.jsx)(`option`,{value:`Partenariat`,children:`Partenariat`}),(0,R.jsx)(`option`,{value:`Support technique`,children:`Support technique`}),(0,R.jsx)(`option`,{value:`Autre`,children:`Autre`})]})]}),(0,R.jsxs)(`div`,{className:`form-group`,children:[(0,R.jsx)(`label`,{className:`form-label`,children:`Message *`}),(0,R.jsx)(`textarea`,{name:`message`,className:`form-input`,rows:5,value:e.message,onChange:c,required:!0,disabled:o,style:{resize:`vertical`}})]}),(0,R.jsx)(`button`,{type:`submit`,className:`btn btn-primary btn-lg`,disabled:o,style:{justifyContent:`center`,gap:8},children:o?(0,R.jsxs)(R.Fragment,{children:[(0,R.jsx)(`div`,{className:`spinner`}),`Envoi en cours...`]}):`Envoyer le message →`})]})}),(0,R.jsxs)(`div`,{children:[(0,R.jsxs)(`div`,{className:`sidebar-block`,children:[(0,R.jsxs)(`div`,{className:`info-title-icon`,children:[(0,R.jsx)(Wy,{size:20,style:{color:`#3b82f6`}}),`Horaires d'ouverture`]}),d.map((e,t)=>(0,R.jsxs)(`div`,{className:`hours-item`,children:[(0,R.jsx)(`span`,{style:{fontSize:`0.875rem`,color:`#334155`},children:e.day}),(0,R.jsx)(`span`,{style:{fontSize:`0.875rem`,fontWeight:`bold`,color:e.open?`#0f172a`:`#94a3b8`},children:e.time})]},t)),(0,R.jsxs)(`div`,{style:{marginTop:`1rem`,paddingTop:`0.75rem`,borderTop:`1px solid #e2e8f0`,fontSize:`0.75rem`,color:`#64748b`},children:[`Assistance technique 24/7`,(0,R.jsx)(`br`,{}),(0,R.jsx)(`strong`,{style:{color:`#3b82f6`},children:`+243 555 503 59`})]})]}),(0,R.jsxs)(`div`,{className:`sidebar-block`,children:[(0,R.jsxs)(`div`,{className:`info-title-icon`,children:[(0,R.jsx)(Ob,{size:20,style:{color:`#3b82f6`}}),`Nos engagements`]}),f.map((e,t)=>{let n=e.icon;return(0,R.jsxs)(`div`,{className:`engagement-item`,children:[(0,R.jsx)(n,{size:16,style:{color:`#3b82f6`}}),(0,R.jsx)(`span`,{style:{fontSize:`0.875rem`,color:`#334155`},children:e.text})]},t)})]}),(0,R.jsxs)(`div`,{className:`quick-response`,children:[(0,R.jsx)(`div`,{className:`info-title-icon`,style:{marginBottom:`0.5rem`},children:`⚡ Réponse rapide`}),(0,R.jsxs)(`p`,{style:{color:`#1e293b`,fontSize:`0.875rem`,lineHeight:`1.5rem`},children:[`Notre équipe s'engage à répondre sous`,` `,(0,R.jsx)(`strong`,{style:{color:`#3b82f6`},children:`24h ouvrées`}),`. Pour une urgence, appelez-nous directement.`]})]})]})]})})}),(0,R.jsx)(`section`,{className:`section`,style:{paddingTop:`2rem`},children:(0,R.jsx)(`div`,{className:`container`,children:(0,R.jsxs)(J.div,{initial:{opacity:0,y:40},whileInView:{opacity:1,y:0},viewport:{once:!0},transition:{duration:.6},style:{background:`#fff`,borderRadius:`1rem`,padding:`2rem`,boxShadow:`var(--shadow-md)`},children:[(0,R.jsxs)(`div`,{style:{marginBottom:`1.5rem`},children:[(0,R.jsx)(`div`,{style:{display:`inline-flex`,alignItems:`center`,gap:`0.5rem`,background:`#eef2ff`,color:`#3b82f6`,padding:`0.25rem 1rem`,borderRadius:`9999px`,fontSize:`0.7rem`,fontWeight:`bold`,textTransform:`uppercase`,marginBottom:`0.75rem`},children:`🗺️ Nous trouver`}),(0,R.jsx)(`h2`,{style:{fontSize:`1.5rem`,fontWeight:`bold`,color:`#0f172a`,fontFamily:`var(--font-display)`},children:`Notre siège à Kinshasa`}),(0,R.jsx)(`p`,{style:{color:`#64748b`,marginTop:`0.25rem`},children:`Avenue Kabmabre n°75, Commune de Lingwala`})]}),(0,R.jsxs)(`div`,{className:`map-placeholder`,children:[(0,R.jsx)(`div`,{style:{fontSize:`3rem`,marginBottom:`1rem`},children:`📍`}),(0,R.jsxs)(`div`,{style:{background:`#fff`,padding:`0.5rem 1rem`,borderRadius:`0.75rem`,border:`1px solid #e2e8f0`},children:[(0,R.jsx)(`div`,{style:{fontWeight:`bold`,color:`#0f172a`},children:`OMDEVE Services`}),(0,R.jsx)(`div`,{style:{fontSize:`0.75rem`,color:`#64748b`},children:`Avenue Kabmabre n°75, Lingwala`}),(0,R.jsx)(`div`,{style:{fontSize:`0.75rem`,color:`#10b981`,fontWeight:`bold`,marginTop:`0.25rem`},children:`● Ouvert aujourd'hui`})]})]}),(0,R.jsx)(`div`,{className:`transport-grid`,children:[{icon:`🚗`,title:`En voiture`,desc:`Parking gratuit sur place`},{icon:`🚌`,title:`Transport`,desc:`Bus : arrêt Lingwala (lignes 12, 23)`},{icon:`♿`,title:`Accessibilité`,desc:`Entrée adaptée aux PMR`}].map((e,t)=>(0,R.jsxs)(`div`,{className:`transport-item`,children:[(0,R.jsx)(`div`,{style:{width:`2.5rem`,height:`2.5rem`,borderRadius:`0.75rem`,background:`#eef2ff`,display:`flex`,alignItems:`center`,justifyContent:`center`,fontSize:`1.25rem`},children:e.icon}),(0,R.jsxs)(`div`,{children:[(0,R.jsx)(`div`,{style:{fontWeight:`bold`,color:`#0f172a`,fontSize:`0.875rem`},children:e.title}),(0,R.jsx)(`div`,{style:{fontSize:`0.75rem`,color:`#64748b`},children:e.desc})]})]},t))})]})})}),(0,R.jsx)(`section`,{className:`section`,style:{paddingTop:`2rem`,paddingBottom:`5rem`},children:(0,R.jsx)(`div`,{className:`container`,children:(0,R.jsxs)(`div`,{className:`cta-grid`,children:[(0,R.jsxs)(J.div,{initial:{opacity:0,y:40},whileInView:{opacity:1,y:0},viewport:{once:!0},transition:{duration:.6},className:`cta-card`,children:[(0,R.jsx)(`div`,{className:`cta-icon`,style:{background:`#3b82f6`},children:(0,R.jsx)(ob,{size:28,color:`#fff`})}),(0,R.jsx)(`h3`,{style:{fontSize:`1.5rem`,fontWeight:`bold`,color:`#0f172a`,marginBottom:`0.75rem`},children:`Assistance immédiate`}),(0,R.jsxs)(`p`,{style:{color:`#475569`,marginBottom:`1.5rem`},children:[`Notre support technique est disponible `,(0,R.jsx)(`strong`,{style:{color:`#3b82f6`},children:`24h/24 et 7j/7`}),` pour répondre à vos urgences.`]}),(0,R.jsxs)(`div`,{style:{display:`flex`,flexWrap:`wrap`,gap:`0.75rem`,justifyContent:`center`},children:[(0,R.jsxs)(`a`,{href:`tel:+24355550359`,className:`btn-outline-light`,children:[(0,R.jsx)(xb,{size:16}),` Appeler maintenant`]}),(0,R.jsxs)(`a`,{href:`https://wa.me/24355550359`,target:`_blank`,rel:`noopener noreferrer`,style:{background:`#10b981`,borderRadius:`0.75rem`,padding:`0.625rem 1.25rem`,color:`white`,fontWeight:`600`,transition:`all 0.2s`,textDecoration:`none`,display:`inline-flex`,alignItems:`center`,gap:`0.5rem`},children:[(0,R.jsx)(_b,{size:16}),` WhatsApp`]})]})]}),(0,R.jsxs)(J.div,{initial:{opacity:0,y:40},whileInView:{opacity:1,y:0},viewport:{once:!0},transition:{duration:.6,delay:.2},className:`cta-card`,children:[(0,R.jsx)(`div`,{className:`cta-icon`,style:{background:`#f59e0b`},children:(0,R.jsx)(eb,{size:28,color:`#fff`})}),(0,R.jsx)(`h3`,{style:{fontSize:`1.5rem`,fontWeight:`bold`,color:`#0f172a`,marginBottom:`0.75rem`},children:`Un projet sur mesure ?`}),(0,R.jsxs)(`p`,{style:{color:`#475569`,marginBottom:`1.5rem`},children:[`Étudions ensemble votre besoin et obtenez un `,(0,R.jsx)(`strong`,{style:{color:`#f59e0b`},children:`devis personnalisé`}),` sans engagement.`]}),(0,R.jsxs)(F,{to:`/devis`,className:`btn-amber`,children:[`Demander un devis `,(0,R.jsx)(X,{size:16})]})]})]})})})]})},aS=[{id:`all`,name:`Tous`,icon:Uy,color:`#64748b`},{id:`reseau`,name:`Réseau & Télécom`,icon:bb,color:`#3b82f6`},{id:`securite`,name:`Sécurité & Surveillance`,icon:Ob,color:`#06b6d4`},{id:`developpement`,name:`Développement Digital`,icon:Ky,color:`#f59e0b`},{id:`cloud`,name:`Cloud & Hébergement`,icon:Gy,color:`#8b5cf6`},{id:`energie`,name:`Énergie`,icon:Fb,color:`#f97316`},{id:`formation`,name:`Formation & Accompagnement`,icon:Fy,color:`#10b981`}],oS=()=>{let[e,t]=(0,b.useState)([]),[n,r]=(0,b.useState)(!0),[i,a]=(0,b.useState)(null),[o,s]=(0,b.useState)(`all`),[c,l]=(0,b.useState)(``),[u,d]=(0,b.useState)(null),[f,p]=(0,b.useState)(!1),m=async e=>{try{r(!0);let n=e===`all`?void 0:e,i=await Dc.getPortfolio({category:n});t(i.data?.data||i.data||[]),a(null)}catch(e){console.error(`Erreur chargement réalisations:`,e),a(`Impossible de charger les réalisations. Veuillez réessayer plus tard.`)}finally{r(!1)}};(0,b.useEffect)(()=>{m(o),l(``)},[o]);let h=e.filter(e=>c===``||e.title?.toLowerCase().includes(c.toLowerCase())||e.client?.toLowerCase().includes(c.toLowerCase())||e.description?.toLowerCase().includes(c.toLowerCase())),g=[{value:e.length+`+`,label:`Projets réalisés`,icon:Iy,color:`#3b82f6`},{value:`95+`,label:`Clients satisfaits`,icon:Wb,color:`#f59e0b`},{value:`8+`,label:`Années d'expérience`,icon:Ny,color:`#10b981`},{value:`98%`,label:`Taux de satisfaction`,icon:Rb,color:`#ec4899`}],_=e.slice(0,5).map(e=>e.image).filter(Boolean),v=_[0]||``,y=_.slice(1,5),x=e=>{d(e),p(!0),document.body.style.overflow=`hidden`},S=()=>{p(!1),d(null),document.body.style.overflow=`auto`};return n?(0,R.jsx)(`div`,{style:{minHeight:`100vh`,display:`flex`,alignItems:`center`,justifyContent:`center`,background:`#f8fafc`},children:(0,R.jsxs)(`div`,{className:`text-center`,children:[(0,R.jsx)(`div`,{className:`spinner`,style:{width:`40px`,height:`40px`,border:`4px solid #e2e8f0`,borderTopColor:`#3b82f6`,borderRadius:`50%`,animation:`spin 1s linear infinite`,margin:`0 auto 1rem`}}),(0,R.jsx)(`p`,{style:{color:`#475569`},children:`Chargement des réalisations...`})]})}):i?(0,R.jsx)(`div`,{style:{minHeight:`100vh`,display:`flex`,alignItems:`center`,justifyContent:`center`,background:`#f8fafc`,padding:`2rem`},children:(0,R.jsxs)(`div`,{className:`text-center`,style:{maxWidth:`400px`},children:[(0,R.jsx)(`div`,{style:{fontSize:`3rem`,marginBottom:`1rem`},children:`⚠️`}),(0,R.jsx)(`h3`,{style:{fontSize:`1.25rem`,color:`#dc2626`,marginBottom:`0.5rem`},children:`Erreur`}),(0,R.jsx)(`p`,{style:{color:`#475569`},children:i}),(0,R.jsx)(`button`,{onClick:()=>m(o),className:`btn-primary`,style:{marginTop:`1rem`},children:`Réessayer`})]})}):(0,R.jsxs)(R.Fragment,{children:[(0,R.jsx)(`style`,{children:`
+      `}),(0,R.jsxs)(`section`,{style:{position:`relative`,height:`400px`,display:`flex`,alignItems:`center`,justifyContent:`center`,textAlign:`center`,overflow:`hidden`},children:[(0,R.jsx)(`div`,{style:{position:`absolute`,top:0,left:0,width:`100%`,height:`100%`,backgroundImage:`url('https://www.shutterstock.com/image-illustration/smart-city-technology-3d-futuristic-260nw-2605212243.jpg')`,backgroundSize:`cover`,backgroundPosition:`center`,backgroundRepeat:`no-repeat`}}),(0,R.jsx)(`div`,{style:{position:`absolute`,top:0,left:0,width:`100%`,height:`100%`,background:`linear-gradient(135deg, rgba(10,14,26,0.85), rgba(0,0,0,0.7))`}}),(0,R.jsxs)(`div`,{className:`container`,style:{position:`relative`,zIndex:2},children:[(0,R.jsx)(`h1`,{style:{fontFamily:`var(--font-display)`,color:`#fff`,fontSize:`clamp(32px,5vw,56px)`,marginBottom:16},children:`Contactez-nous`}),(0,R.jsx)(`p`,{style:{color:`rgba(255,255,255,0.8)`,fontSize:17},children:`Notre équipe répond sous 24 heures ouvrables.`})]})]}),(0,R.jsx)(`div`,{className:`container`,style:{marginTop:`-3rem`,position:`relative`,zIndex:10,paddingBottom:`3rem`},children:(0,R.jsx)(J.div,{initial:`hidden`,whileInView:`visible`,viewport:{once:!0},variants:rS,className:`cards-grid`,children:u.map((e,t)=>{let n=e.icon;return(0,R.jsxs)(J.a,{variants:nS,href:e.link,target:`_blank`,rel:`noopener noreferrer`,className:`card-info`,children:[(0,R.jsx)(`div`,{className:`card-icon`,style:{background:e.color,color:`white`},children:(0,R.jsx)(n,{size:24})}),(0,R.jsx)(`h3`,{className:`card-title`,children:e.title}),(0,R.jsx)(`p`,{className:`card-content`,children:e.content})]},t)})})}),(0,R.jsx)(`section`,{className:`section`,style:{paddingTop:`1rem`},children:(0,R.jsx)(`div`,{className:`container`,children:(0,R.jsxs)(`div`,{className:`contact-main-grid`,children:[(0,R.jsx)(`div`,{style:{background:`#fff`,borderRadius:20,padding:36,boxShadow:`var(--shadow-lg)`},children:n?(0,R.jsxs)(`div`,{style:{textAlign:`center`,padding:`32px 0`},children:[(0,R.jsx)(`div`,{style:{fontSize:56,marginBottom:16},children:`✅`}),(0,R.jsx)(`h3`,{style:{fontFamily:`var(--font-display)`,fontSize:24,marginBottom:8},children:`Message envoyé !`}),(0,R.jsx)(`p`,{style:{color:`var(--gray-500)`},children:`Nous vous répondrons dans les 24 heures ouvrables.`}),(0,R.jsx)(`button`,{className:`btn btn-primary`,style:{marginTop:20},onClick:()=>r(!1),children:`Envoyer un autre message`})]}):(0,R.jsxs)(`form`,{onSubmit:l,style:{display:`flex`,flexDirection:`column`,gap:18},children:[(0,R.jsx)(`h3`,{style:{fontFamily:`var(--font-display)`,fontSize:22,marginBottom:4},children:`Envoyez-nous un message`}),i&&(0,R.jsxs)(`div`,{style:{background:`#fee2e2`,color:`#b91c1c`,padding:`12px 16px`,borderRadius:12,fontSize:14,border:`1px solid #fecaca`},children:[`❌ `,i]}),(0,R.jsxs)(`div`,{className:`form-row`,children:[(0,R.jsxs)(`div`,{className:`form-group`,children:[(0,R.jsx)(`label`,{className:`form-label`,children:`Votre nom *`}),(0,R.jsx)(`input`,{type:`text`,name:`nom`,className:`form-input`,value:e.nom,onChange:c,required:!0,disabled:o})]}),(0,R.jsxs)(`div`,{className:`form-group`,children:[(0,R.jsx)(`label`,{className:`form-label`,children:`Votre email *`}),(0,R.jsx)(`input`,{type:`email`,name:`email`,className:`form-input`,value:e.email,onChange:c,required:!0,disabled:o})]}),(0,R.jsxs)(`div`,{className:`form-group`,children:[(0,R.jsx)(`label`,{className:`form-label`,children:`Téléphone`}),(0,R.jsx)(`input`,{type:`tel`,name:`phone`,className:`form-input`,value:e.phone,onChange:c,disabled:o})]})]}),(0,R.jsxs)(`div`,{className:`form-group`,children:[(0,R.jsx)(`label`,{className:`form-label`,children:`Objet`}),(0,R.jsxs)(`select`,{name:`objet`,className:`form-input`,value:e.objet,onChange:c,disabled:o,children:[(0,R.jsx)(`option`,{value:`Demande d'information`,children:`Demande d'information`}),(0,R.jsx)(`option`,{value:`Devis`,children:`Devis`}),(0,R.jsx)(`option`,{value:`Partenariat`,children:`Partenariat`}),(0,R.jsx)(`option`,{value:`Support technique`,children:`Support technique`}),(0,R.jsx)(`option`,{value:`Autre`,children:`Autre`})]})]}),(0,R.jsxs)(`div`,{className:`form-group`,children:[(0,R.jsx)(`label`,{className:`form-label`,children:`Message *`}),(0,R.jsx)(`textarea`,{name:`message`,className:`form-input`,rows:5,value:e.message,onChange:c,required:!0,disabled:o,style:{resize:`vertical`}})]}),(0,R.jsx)(`button`,{type:`submit`,className:`btn btn-primary btn-lg`,disabled:o,style:{justifyContent:`center`,gap:8},children:o?(0,R.jsxs)(R.Fragment,{children:[(0,R.jsx)(`div`,{className:`spinner`}),` Envoi en cours...`]}):`Envoyer le message →`})]})}),(0,R.jsxs)(`div`,{children:[(0,R.jsxs)(`div`,{className:`sidebar-block`,children:[(0,R.jsxs)(`div`,{className:`info-title-icon`,children:[(0,R.jsx)(Wy,{size:20,style:{color:`#3b82f6`}}),` Horaires d'ouverture`]}),d.map((e,t)=>(0,R.jsxs)(`div`,{className:`hours-item`,children:[(0,R.jsx)(`span`,{style:{fontSize:`0.875rem`,color:`#334155`},children:e.day}),(0,R.jsx)(`span`,{style:{fontSize:`0.875rem`,fontWeight:`bold`,color:e.open?`#0f172a`:`#94a3b8`},children:e.time})]},t)),(0,R.jsxs)(`div`,{style:{marginTop:`1rem`,paddingTop:`0.75rem`,borderTop:`1px solid #e2e8f0`,fontSize:`0.75rem`,color:`#64748b`},children:[`Assistance technique 24/7`,(0,R.jsx)(`br`,{}),(0,R.jsx)(`strong`,{style:{color:`#3b82f6`},children:`+243 555 503 59`})]})]}),(0,R.jsxs)(`div`,{className:`sidebar-block`,children:[(0,R.jsxs)(`div`,{className:`info-title-icon`,children:[(0,R.jsx)(Ob,{size:20,style:{color:`#3b82f6`}}),` Nos engagements`]}),f.map((e,t)=>{let n=e.icon;return(0,R.jsxs)(`div`,{className:`engagement-item`,children:[(0,R.jsx)(n,{size:16,style:{color:`#3b82f6`}}),(0,R.jsx)(`span`,{style:{fontSize:`0.875rem`,color:`#334155`},children:e.text})]},t)})]}),(0,R.jsxs)(`div`,{className:`quick-response`,children:[(0,R.jsx)(`div`,{className:`info-title-icon`,style:{marginBottom:`0.5rem`},children:`⚡ Réponse rapide`}),(0,R.jsxs)(`p`,{style:{color:`#1e293b`,fontSize:`0.875rem`,lineHeight:`1.5rem`},children:[`Notre équipe s'engage à répondre sous `,(0,R.jsx)(`strong`,{style:{color:`#3b82f6`},children:`24h ouvrées`}),`. Pour une urgence, appelez-nous directement.`]})]})]})]})})}),(0,R.jsx)(`section`,{className:`section`,style:{paddingTop:`2rem`},children:(0,R.jsx)(`div`,{className:`container`,children:(0,R.jsxs)(J.div,{initial:{opacity:0,y:40},whileInView:{opacity:1,y:0},viewport:{once:!0},transition:{duration:.6},style:{background:`#fff`,borderRadius:`1rem`,padding:`2rem`,boxShadow:`var(--shadow-md)`},children:[(0,R.jsxs)(`div`,{style:{marginBottom:`1.5rem`},children:[(0,R.jsx)(`div`,{style:{display:`inline-flex`,alignItems:`center`,gap:`0.5rem`,background:`#eef2ff`,color:`#3b82f6`,padding:`0.25rem 1rem`,borderRadius:`9999px`,fontSize:`0.7rem`,fontWeight:`bold`,textTransform:`uppercase`,marginBottom:`0.75rem`},children:`🗺️ Nous trouver`}),(0,R.jsx)(`h2`,{style:{fontSize:`1.5rem`,fontWeight:`bold`,color:`#0f172a`,fontFamily:`var(--font-display)`},children:`Notre siège à Kinshasa`}),(0,R.jsx)(`p`,{style:{color:`#64748b`,marginTop:`0.25rem`},children:`Avenue Kabmabre n°75, Commune de Lingwala`})]}),(0,R.jsxs)(`div`,{className:`map-placeholder`,children:[(0,R.jsx)(`div`,{style:{fontSize:`3rem`,marginBottom:`1rem`},children:`📍`}),(0,R.jsxs)(`div`,{style:{background:`#fff`,padding:`0.5rem 1rem`,borderRadius:`0.75rem`,border:`1px solid #e2e8f0`},children:[(0,R.jsx)(`div`,{style:{fontWeight:`bold`,color:`#0f172a`},children:`OMDEVE Services`}),(0,R.jsx)(`div`,{style:{fontSize:`0.75rem`,color:`#64748b`},children:`Avenue Kabmabre n°75, Lingwala`}),(0,R.jsx)(`div`,{style:{fontSize:`0.75rem`,color:`#10b981`,fontWeight:`bold`,marginTop:`0.25rem`},children:`● Ouvert aujourd'hui`})]})]}),(0,R.jsx)(`div`,{className:`transport-grid`,children:[{icon:`🚗`,title:`En voiture`,desc:`Parking gratuit sur place`},{icon:`🚌`,title:`Transport`,desc:`Bus : arrêt Lingwala (lignes 12, 23)`},{icon:`♿`,title:`Accessibilité`,desc:`Entrée adaptée aux PMR`}].map((e,t)=>(0,R.jsxs)(`div`,{className:`transport-item`,children:[(0,R.jsx)(`div`,{style:{width:`2.5rem`,height:`2.5rem`,borderRadius:`0.75rem`,background:`#eef2ff`,display:`flex`,alignItems:`center`,justifyContent:`center`,fontSize:`1.25rem`},children:e.icon}),(0,R.jsxs)(`div`,{children:[(0,R.jsx)(`div`,{style:{fontWeight:`bold`,color:`#0f172a`,fontSize:`0.875rem`},children:e.title}),(0,R.jsx)(`div`,{style:{fontSize:`0.75rem`,color:`#64748b`},children:e.desc})]})]},t))})]})})}),(0,R.jsx)(`section`,{className:`section`,style:{paddingTop:`2rem`,paddingBottom:`5rem`},children:(0,R.jsx)(`div`,{className:`container`,children:(0,R.jsxs)(`div`,{className:`cta-grid`,children:[(0,R.jsxs)(J.div,{initial:{opacity:0,y:40},whileInView:{opacity:1,y:0},viewport:{once:!0},transition:{duration:.6},className:`cta-card`,children:[(0,R.jsx)(`div`,{className:`cta-icon`,style:{background:`#3b82f6`},children:(0,R.jsx)(ob,{size:28,color:`#fff`})}),(0,R.jsx)(`h3`,{style:{fontSize:`1.5rem`,fontWeight:`bold`,color:`#0f172a`,marginBottom:`0.75rem`},children:`Assistance immédiate`}),(0,R.jsxs)(`p`,{style:{color:`#475569`,marginBottom:`1.5rem`},children:[`Notre support technique est disponible `,(0,R.jsx)(`strong`,{style:{color:`#3b82f6`},children:`24h/24 et 7j/7`}),` pour répondre à vos urgences.`]}),(0,R.jsxs)(`div`,{style:{display:`flex`,flexWrap:`wrap`,gap:`0.75rem`,justifyContent:`center`},children:[(0,R.jsxs)(`a`,{href:`tel:+24355550359`,className:`btn-outline-light`,children:[(0,R.jsx)(xb,{size:16}),` Appeler maintenant`]}),(0,R.jsxs)(`a`,{href:`https://wa.me/24355550359`,target:`_blank`,rel:`noopener noreferrer`,style:{background:`#10b981`,borderRadius:`0.75rem`,padding:`0.625rem 1.25rem`,color:`white`,fontWeight:`600`,transition:`all 0.2s`,textDecoration:`none`,display:`inline-flex`,alignItems:`center`,gap:`0.5rem`},children:[(0,R.jsx)(_b,{size:16}),` WhatsApp`]})]})]}),(0,R.jsxs)(J.div,{initial:{opacity:0,y:40},whileInView:{opacity:1,y:0},viewport:{once:!0},transition:{duration:.6,delay:.2},className:`cta-card`,children:[(0,R.jsx)(`div`,{className:`cta-icon`,style:{background:`#f59e0b`},children:(0,R.jsx)(eb,{size:28,color:`#fff`})}),(0,R.jsx)(`h3`,{style:{fontSize:`1.5rem`,fontWeight:`bold`,color:`#0f172a`,marginBottom:`0.75rem`},children:`Un projet sur mesure ?`}),(0,R.jsxs)(`p`,{style:{color:`#475569`,marginBottom:`1.5rem`},children:[`Étudions ensemble votre besoin et obtenez un `,(0,R.jsx)(`strong`,{style:{color:`#f59e0b`},children:`devis personnalisé`}),` sans engagement.`]}),(0,R.jsxs)(F,{to:`/devis`,className:`btn-amber`,children:[`Demander un devis `,(0,R.jsx)(X,{size:16})]})]})]})})})]})},aS=[{id:`all`,name:`Tous`,icon:Uy,color:`#64748b`},{id:`reseau`,name:`Réseau & Télécom`,icon:bb,color:`#3b82f6`},{id:`securite`,name:`Sécurité & Surveillance`,icon:Ob,color:`#06b6d4`},{id:`developpement`,name:`Développement Digital`,icon:Ky,color:`#f59e0b`},{id:`cloud`,name:`Cloud & Hébergement`,icon:Gy,color:`#8b5cf6`},{id:`energie`,name:`Énergie`,icon:Fb,color:`#f97316`},{id:`formation`,name:`Formation & Accompagnement`,icon:Fy,color:`#10b981`}],oS=()=>{let[e,t]=(0,b.useState)([]),[n,r]=(0,b.useState)(!0),[i,a]=(0,b.useState)(null),[o,s]=(0,b.useState)(`all`),[c,l]=(0,b.useState)(``),[u,d]=(0,b.useState)(null),[f,p]=(0,b.useState)(!1),m=async e=>{try{r(!0);let n=e===`all`?void 0:e,i=await Dc.getPortfolio({category:n});t(i.data?.data||i.data||[]),a(null)}catch(e){console.error(`Erreur chargement réalisations:`,e),a(`Impossible de charger les réalisations. Veuillez réessayer plus tard.`)}finally{r(!1)}};(0,b.useEffect)(()=>{m(o),l(``)},[o]);let h=e.filter(e=>c===``||e.title?.toLowerCase().includes(c.toLowerCase())||e.client?.toLowerCase().includes(c.toLowerCase())||e.description?.toLowerCase().includes(c.toLowerCase())),g=[{value:e.length+`+`,label:`Projets réalisés`,icon:Iy,color:`#3b82f6`},{value:`95+`,label:`Clients satisfaits`,icon:Wb,color:`#f59e0b`},{value:`8+`,label:`Années d'expérience`,icon:Ny,color:`#10b981`},{value:`98%`,label:`Taux de satisfaction`,icon:Rb,color:`#ec4899`}],_=e.slice(0,5).map(e=>e.image).filter(Boolean),v=_[0]||``,y=_.slice(1,5),x=e=>{d(e),p(!0),document.body.style.overflow=`hidden`},S=()=>{p(!1),d(null),document.body.style.overflow=`auto`};return n?(0,R.jsx)(`div`,{style:{minHeight:`100vh`,display:`flex`,alignItems:`center`,justifyContent:`center`,background:`#f8fafc`},children:(0,R.jsxs)(`div`,{className:`text-center`,children:[(0,R.jsx)(`div`,{className:`spinner`,style:{width:`40px`,height:`40px`,border:`4px solid #e2e8f0`,borderTopColor:`#3b82f6`,borderRadius:`50%`,animation:`spin 1s linear infinite`,margin:`0 auto 1rem`}}),(0,R.jsx)(`p`,{style:{color:`#475569`},children:`Chargement des réalisations...`})]})}):i?(0,R.jsx)(`div`,{style:{minHeight:`100vh`,display:`flex`,alignItems:`center`,justifyContent:`center`,background:`#f8fafc`,padding:`2rem`},children:(0,R.jsxs)(`div`,{className:`text-center`,style:{maxWidth:`400px`},children:[(0,R.jsx)(`div`,{style:{fontSize:`3rem`,marginBottom:`1rem`},children:`⚠️`}),(0,R.jsx)(`h3`,{style:{fontSize:`1.25rem`,color:`#dc2626`,marginBottom:`0.5rem`},children:`Erreur`}),(0,R.jsx)(`p`,{style:{color:`#475569`},children:i}),(0,R.jsx)(`button`,{onClick:()=>m(o),className:`btn-primary`,style:{marginTop:`1rem`},children:`Réessayer`})]})}):(0,R.jsxs)(R.Fragment,{children:[(0,R.jsx)(`style`,{children:`
         /* TOUS LES STYLES SONT IDENTIQUES À VOTRE VERSION PRÉCÉDENTE */
         .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
         .realisations-hero {
